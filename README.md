@@ -20,49 +20,131 @@ A modern, responsive landing page built with Next.js, TypeScript, Material-UI, a
 - Features section highlighting key benefits
 - Call-to-action sections
 
-### Contact Us (`/contact-us`)
+### Contact Us (`/contact`)
 - Contact form with name, email, phone, subject, and message fields
 - Form validation
 - Firebase Firestore integration to store submissions
 - Success/error messaging
 
-### Terms & Conditions (`/terms-and-conditions`)
+### Terms & Conditions (`/terms`)
 - Comprehensive terms and conditions for the application
 
-### Privacy Policy (`/privacy-policy`)
+### Privacy Policy (`/privacy`)
 - Detailed privacy policy explaining data collection and usage
 
 ## Getting Started
 
-The application is built with Next.js and Material-UI for a modern, responsive experience. Visit [http://localhost:3000](http://localhost:3000) to view the landing page.
+### Prerequisites
+
+- Node.js 22.11.0 or higher
+- npm or yarn package manager
+- Firebase project with Firestore enabled
+
+### Installation
+
+1. Navigate to the project directory:
+```bash
+cd shreemaryada_web
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up Firebase configuration:
+   - Copy `.env.local.example` to `.env.local`
+   - Add your Firebase project credentials to `.env.local`:
+   ```
+   NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+   NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+   ```
+
+### Running the Development Server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Project Structure
 
 ```
 shreemaryada_web/
 ├── app/
-│   ├── layout.tsx                    # Root layout with Navigation and Footer
-│   ├── page.tsx                      # Home page
-│   ├── globals.css                   # Global styles
-│   ├── contact-us/
-│   │   └── page.tsx                  # Contact page with form
-│   ├── terms-and-conditions/
-│   │   └── page.tsx                  # Terms & Conditions page
-│   └── privacy-policy/
-│       └── page.tsx                  # Privacy Policy page
+│   ├── layout.tsx          # Root layout with Navigation and Footer
+│   ├── page.tsx            # Home page
+│   ├── globals.css         # Global styles
+│   ├── contact/
+│   │   └── page.tsx        # Contact page with form
+│   ├── terms/
+│   │   └── page.tsx        # Terms & Conditions page
+│   └── privacy/
+│       └── page.tsx        # Privacy Policy page
 ├── components/
-│   ├── Navigation.tsx                # Top navigation bar
-│   ├── Footer.tsx                    # Footer component
-│   └── ThemeRegistry.tsx             # MUI theme setup
+│   ├── Navigation.tsx      # Top navigation bar
+│   └── Footer.tsx          # Footer component
 ├── lib/
-│   └── firebase.ts                   # Firebase configuration
+│   └── firebase.ts         # Firebase configuration
 ├── theme/
-│   └── theme.ts                      # MUI theme configuration
+│   └── theme.ts            # MUI theme configuration
 ├── public/
-│   └── logo.png                      # Application logo
+│   └── logo.png            # Application logo
 └── package.json
 ```
 
+## Building for Production
+
+```bash
+npm run build
+npm start
+```
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Go to [Vercel](https://vercel.com)
+3. Import your repository
+4. Add environment variables in Vercel settings
+5. Deploy
+
+### Other Hosting
+
+The application can be deployed to any Node.js hosting platform. Make sure to:
+1. Set environment variables
+2. Run `npm run build`
+3. Run `npm start` to start the server
+
+## Firebase Setup
+
+### Enable Firestore Database
+
+1. Go to your Firebase Console
+2. Create a Firestore database in production mode
+3. Create a collection named `contacts` for storing contact form submissions
+
+### Security Rules
+
+Add these security rules to your Firestore database:
+
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /contacts/{document=**} {
+      allow create: if request.auth == null;
+      allow read, write: if false;
+    }
+  }
+}
+```
 
 ## Technologies Used
 
@@ -74,13 +156,21 @@ shreemaryada_web/
 
 ## Customization
 
-To customize the application, edit the following files:
-- `app/layout.tsx` - Update metadata and page title
-- `components/Navigation.tsx` - Update navigation branding
-- `components/Footer.tsx` - Update footer content and contact information
+### Update Application Name and Details
+
+Edit the following files to customize:
+- `app/layout.tsx` - Update metadata
+- `components/Navigation.tsx` - Update branding
+- `components/Footer.tsx` - Update contact information
 - `app/page.tsx` - Update home page content
-- `public/logo.png` - Replace with your desired logo
-- `theme/theme.ts` - Customize colors, typography, and component styles
+
+### Update Logo
+
+Replace the logo file at `public/logo.png` with your desired logo.
+
+### Modify Theme
+
+Edit `theme/theme.ts` to customize colors, typography, and component styles.
 
 ## Performance
 
@@ -104,3 +194,13 @@ This project is proprietary to Shree Maryada PMS.
 
 For support, email: info@shreemaryada.com
 
+## Future Enhancements
+
+- [ ] Blog section
+- [ ] FAQ section
+- [ ] Newsletter signup
+- [ ] Team showcase
+- [ ] Testimonials section
+- [ ] Pricing page
+- [ ] Multi-language support
+# shreemaryada_web
