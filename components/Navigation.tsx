@@ -24,9 +24,9 @@ const Navigation = () => {
 
   const navItems = [
     { label: 'Home', href: '/' },
-    { label: 'Contact Us', href: '/contact' },
-    { label: 'T&C', href: '/terms' },
-    { label: 'Privacy', href: '/privacy' },
+    { label: 'Contact Us', href: '/contact-us' },
+    { label: 'T&C', href: '/terms-and-conditions' },
+    { label: 'Privacy', href: '/privacy-policy' },
   ];
 
   const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -50,6 +50,7 @@ const Navigation = () => {
               width={40}
               height={40}
               priority
+              style={{ width: 'auto', height: 'auto' }}
             />
             <Box sx={{ display: { xs: 'none', sm: 'block' }, fontWeight: 'bold', color: '#333' }}>
               Shree Maryada PMS
