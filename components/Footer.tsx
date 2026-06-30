@@ -28,7 +28,7 @@ const Footer = () => {
               <MuiLink component={NextLink} href="/" sx={{ color: '#666', textDecoration: 'none', '&:hover': { color: '#000' } }}>
                 Home
               </MuiLink>
-              <MuiLink component={NextLink} href="/contact" sx={{ color: '#666', textDecoration: 'none', '&:hover': { color: '#000' } }}>
+              <MuiLink component={NextLink} href="/contact-us" sx={{ color: '#666', textDecoration: 'none', '&:hover': { color: '#000' } }}>
                 Contact Us
               </MuiLink>
             </Box>
@@ -39,10 +39,10 @@ const Footer = () => {
               Legal
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-              <MuiLink component={NextLink} href="/terms" sx={{ color: '#666', textDecoration: 'none', '&:hover': { color: '#000' } }}>
+              <MuiLink component={NextLink} href="/terms-and-conditions" sx={{ color: '#666', textDecoration: 'none', '&:hover': { color: '#000' } }}>
                 Terms & Conditions
               </MuiLink>
-              <MuiLink component={NextLink} href="/privacy" sx={{ color: '#666', textDecoration: 'none', '&:hover': { color: '#000' } }}>
+              <MuiLink component={NextLink} href="/privacy-policy" sx={{ color: '#666', textDecoration: 'none', '&:hover': { color: '#000' } }}>
                 Privacy Policy
               </MuiLink>
             </Box>
